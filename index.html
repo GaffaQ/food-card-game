@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cholesterol UNO - Food Card Game</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="app-header">
+      <h1>Cholesterol UNO</h1>
+      <button id="btn-restart" class="btn hidden">Ulangi</button>
+    </header>
+
+    <main class="table">
+      <section id="scoreboard" class="scoreboard"></section>
+      <section class="center-stage">
+        <div id="center-pile" class="pile center"></div>
+        <div id="turn-indicator" class="turn-indicator">Giliran: -</div>
+      </section>
+      <section id="player-hand" class="player-hand"></section>
+    </main>
+  </div>
+
+  <!-- Modal: Player Count -->
+  <div id="modal-count" class="modal visible">
+    <div class="modal-content">
+      <h2>Berapa pemain?</h2>
+      <p>Minimal 2, maksimal 4.</p>
+      <form id="form-count">
+        <div class="form-row">
+          <input id="input-count" type="number" min="2" max="4" value="2" required />
+        </div>
+        <button class="btn primary" type="submit">Lanjut</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Player Names -->
+  <div id="modal-names" class="modal">
+    <div class="modal-content">
+      <h2>Nama Pemain</h2>
+      <form id="form-names"></form>
+    </div>
+  </div>
+
+  <!-- Modal: Summary -->
+  <div id="modal-summary" class="modal">
+    <div class="modal-content">
+      <h2>Hasil Permainan</h2>
+      <div id="summary-body"></div>
+      <div class="modal-actions">
+        <button id="btn-play-again" class="btn primary">Main Lagi</button>
+        <button id="btn-close-summary" class="btn">Tutup</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
+
+

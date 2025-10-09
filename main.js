@@ -162,9 +162,7 @@ btnPlayAgain.addEventListener('click', ()=>{
 btnCloseSummary.addEventListener('click', ()=>{
   modalSummary.classList.remove('visible');
 });
-btnRestart.addEventListener('click', ()=>{
-  location.reload();
-});
+if(btnRestart){ btnRestart.addEventListener('click', ()=>{ location.reload(); }); }
 
 // Rendering
 function renderScoreboard(){
@@ -174,13 +172,19 @@ function renderScoreboard(){
     div.className = 'player-card'+(idx===state.turnIndex && !p.finished?' turn':'');
     const isTurn = idx === state.turnIndex && !p.finished;
     div.innerHTML = `
-      <div class="name">${p.name}</div>
+      <div class="row">
+        <div class="name">${p.name}</div>
+        <div style="font-weight:900">${isTurn?'▶️':''}</div>
+      </div>
       <div class="stats">
         <div class="chip ldl">LDL +${p.ldlPoints}</div>
         <div class="chip hdl">HDL -${p.hdlPoints}</div>
         <div class="chip total">Total ${p.cholesterol}</div>
       </div>
-      <div style="margin-top:6px; opacity:.8; font-weight:700">Kartu: ${p.hand.length}</div>
+      <div class="footer">
+        <div>🃏 ${p.hand.length} kartu</div>
+        <div>${p.finished?'Selesai ✅':''}</div>
+      </div>
     `;
     scoreboard.appendChild(div);
   });

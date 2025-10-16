@@ -53,11 +53,11 @@ function buildDeck(){
   const deck = [];
   // Duplicate sets to make a richer deck
   for(let i=0;i<4;i++){
-    JUNK_CARDS.forEach(j=> deck.push({ id: uid(), kind:'junk', name:j.name, ldl:j.ldl, img:`assets/junk.jpg` }));
-    HEAL_CARDS.forEach(h=> deck.push({ id: uid(), kind:'heal', name:h.name, hdl:h.hdl, img:`assets/healty.jpg` }));
+    JUNK_CARDS.forEach(j=> deck.push({ id: uid(), kind:'junk', name:j.name, ldl:j.ldl, img:`assets/junk/${j.key}.png` }));
+    HEAL_CARDS.forEach(h=> deck.push({ id: uid(), kind:'heal', name:h.name, hdl:h.hdl, img:`assets/healty/${h.key}.png` }));
   }
   for(let i=0;i<6;i++){
-    BONUS_CARDS.forEach(p=> deck.push({ id: uid(), kind:'bonus', bonus:p.type, points:p.points, name:p.name, img:`assets/${p.key}.png` }));
+    BONUS_CARDS.forEach(p=> deck.push({ id: uid(), kind:'bonus', bonus:p.type, points:p.points, name:p.name, img:`assets/bonus/${p.key}.png` }));
   }
   return shuffle(deck);
 }
@@ -199,8 +199,8 @@ function cardEl(card){
   el.innerHTML = `
     <div class="img" style="background-image:url('${card.img}')"></div>
     <div class="type">${card.kind==='bonus'?card.bonus.replace('bonus_','').toUpperCase():card.kind.toUpperCase()}</div>
-    <div class="title">${card.name}</div>
-    <div class="points">${card.kind==='junk'?`+${card.ldl}`:card.kind==='heal'?`-${card.hdl}`:card.kind==='bonus'?(card.bonus==='bonus_plus'?`+${card.points}`:`-${card.points}`):''}</div>
+    // <div class="title">${card.name}</div>
+    // <div class="points">${card.kind==='junk'?`+${card.ldl}`:card.kind==='heal'?`-${card.hdl}`:card.kind==='bonus'?(card.bonus==='bonus_plus'?`+${card.points}`:`-${card.points}`):''}</div>
   `;
   el.addEventListener('click', ()=> onPlayCard(card.id));
   return el;

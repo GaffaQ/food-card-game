@@ -200,9 +200,7 @@ function cardEl(card){
   el.dataset.id = card.id;
   el.innerHTML = `
     <div class="img" style="background-image:url('${card.img}')"></div>
-    <div class="type">${card.kind==='bonus'?card.bonus.replace('bonus_','').toUpperCase():card.kind.toUpperCase()}</div>
-    <div class="title">${card.name}</div>
-    <div class="points">${card.kind==='junk'?`+${card.ldl}`:card.kind==='heal'?`-${card.hdl}`:card.kind==='bonus'?(card.bonus==='bonus_plus'?`+${card.points}`:`-${card.points}`):''}</div>
+    
   `;
   el.addEventListener('click', ()=> onPlayCard(card.id));
   return el;

@@ -75,7 +75,7 @@ body{
 .card .img{position:absolute; inset:0; opacity:1; background-size:cover; background-repeat:no-repeat; background-position:center}
 .card.junk{background:transparent}
 .card.heal{background:transparent}
-.card.power{background:transparent}
+.card.bonus{background:transparent}
 
 .hidden{display:none}
 

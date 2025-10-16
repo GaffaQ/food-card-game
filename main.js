@@ -42,9 +42,11 @@ const HEAL_CARDS = [
   { name: 'Air putih hangat rutin', hdl: 10, key: 'air_putih_hangat_rutin' },
 ];
 
-const POWER_CARDS = [
-  { name: 'Plus Card', type: 'plus', key: 'power_plus' },
-  { name: 'Minus Card', type: 'minus', key: 'power_minus' },
+const BONUS_CARDS = [
+  { name: 'Lack of sleep', type: 'bonus_plus', points: 25, key: 'bonus_plus' },
+  { name: 'Smoking habit', type: 'bonus_plus', points: 35, key: 'bonus_plus' },
+  { name: 'Brisk walking', type: 'bonus_minus', points: 25, key: 'bonus_minus' },
+  { name: 'Yoga', type: 'bonus_minus', points: 15, key: 'bonus_minus' },
 ];
 
 function buildDeck(){
@@ -55,7 +57,7 @@ function buildDeck(){
     HEAL_CARDS.forEach(h=> deck.push({ id: uid(), kind:'heal', name:h.name, hdl:h.hdl, img:`assets/healty.jpg` }));
   }
   for(let i=0;i<6;i++){
-    POWER_CARDS.forEach(p=> deck.push({ id: uid(), kind:'power', power:p.type, name:p.name, img:`assets/power.png` }));
+    BONUS_CARDS.forEach(p=> deck.push({ id: uid(), kind:'bonus', bonus:p.type, points:p.points, name:p.name, img:`assets/${p.key}.png` }));
   }
   return shuffle(deck);
 }
@@ -192,13 +194,13 @@ function renderScoreboard(){
 
 function cardEl(card){
   const el = document.createElement('div');
-  el.className = `card ${card.kind==='junk'?'junk':card.kind==='heal'?'heal':'power'}`;
+  el.className = `card ${card.kind==='junk'?'junk':card.kind==='heal'?'heal':'bonus'}`;
   el.dataset.id = card.id;
   el.innerHTML = `
     <div class="img" style="background-image:url('${card.img}')"></div>
-    <div class="type">${card.kind==='power'?card.power.toUpperCase():card.kind.toUpperCase()}</div>
+    <div class="type">${card.kind==='bonus'?card.bonus.replace('bonus_','').toUpperCase():card.kind.toUpperCase()}</div>
     <div class="title">${card.name}</div>
-    <div class="points">${card.kind==='junk'?`+${card.ldl}`:card.kind==='heal'?`-${card.hdl}`:card.power==='plus'?'+?':'-?'}</div>
+    <div class="points">${card.kind==='junk'?`+${card.ldl}`:card.kind==='heal'?`-${card.hdl}`:card.kind==='bonus'?(card.bonus==='bonus_plus'?`+${card.points}`:`-${card.points}`):''}</div>
   `;
   el.addEventListener('click', ()=> onPlayCard(card.id));
   return el;
@@ -279,18 +281,13 @@ function onPlayCard(cardId){
   } else if(card.kind==='heal'){
     player.hdlPoints += card.hdl;
     player.cholesterol -= card.hdl;
-  } else if(card.kind==='power'){
-    if(card.power==='plus'){
-      const n = 1 + Math.floor(Math.random()*4);
-      for(let i=0;i<n;i++){
-        const draw = state.deck.pop(); if(draw) player.hand.push(draw);
-      }
-    } else if(card.power==='minus'){
-      const n = 1 + Math.floor(Math.random()*4);
-      for(let i=0;i<n && player.hand.length>0;i++){
-        const j = Math.floor(Math.random()*player.hand.length);
-        player.hand.splice(j,1);
-      }
+  } else if(card.kind==='bonus'){
+    if(card.bonus==='bonus_plus'){
+      player.ldlPoints += card.points;
+      player.cholesterol += card.points;
+    } else if(card.bonus==='bonus_minus'){
+      player.hdlPoints += card.points;
+      player.cholesterol -= card.points;
     }
   }
 

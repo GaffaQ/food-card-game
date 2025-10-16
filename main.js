@@ -9,44 +9,46 @@ const state = {
 
 // Card factories
 const JUNK_CARDS = [
-  { name: 'Burger keju', ldl: 30, key: 'burger_keju' },
-  { name: 'Ayam goreng tepung', ldl: 20, key: 'ayam_goreng_tepung' },
-  { name: 'Kentang goreng', ldl: 15, key: 'kentang_goreng' },
-  { name: 'Pizza sosis keju', ldl: 25, key: 'pizza_sosis_keju' },
-  { name: 'Donat & kue manis', ldl: 30, key: 'donat_kue_manis' },
-  { name: 'Es krim full cream', ldl: 15, key: 'es_krim_full_cream' },
-  { name: 'Hotdog', ldl: 15, key: 'hotdog' },
-  { name: 'Daging olahan (sosis, nugget)', ldl: 20, key: 'daging_olahan' },
-  { name: 'Susu kental manis', ldl: 15, key: 'susu_kental_manis' },
-  { name: 'Keju leleh berlebihan', ldl: 20, key: 'keju_leleh_berlebihan' },
-  { name: 'Mie instan dengan bumbu lengkap', ldl: 15, key: 'mie_instan_bumbu_lengkap' },
-  { name: 'Martabak telur daging', ldl: 30, key: 'martabak_telur_daging' },
-  { name: 'Kulit ayam goreng', ldl: 25, key: 'kulit_ayam_goreng' },
-  { name: 'Kue tart krim mentega', ldl: 30, key: 'kue_tart_krim_mentega' },
+  { name: 'Burger keju', ldl: 30, key: 'burger_keju' }, //
+  { name: 'Ayam goreng tepung', ldl: 20, key: 'ayam_goreng_tepung' }, //
+  { name: 'Kentang goreng', ldl: 15, key: 'kentang_goreng' }, //
+  { name: 'Pizza sosis keju', ldl: 25, key: 'pizza_sosis_keju' },//
+  { name: 'Donat & kue manis', ldl: 30, key: 'donat_kue_manis' },//
+  { name: 'Es krim full cream', ldl: 15, key: 'es_krim_full_cream' },//
+  { name: 'Hotdog', ldl: 15, key: 'hotdog' },//
+  { name: 'sosis', ldl: 20, key: 'sosis' },//
+  { name: 'Susu kental manis', ldl: 15, key: 'susu_kental_manis' },//
+  { name: 'Keju leleh berlebihan', ldl: 20, key: 'keju_leleh_berlebihan' }, //
+  { name: 'Mie instan dengan bumbu lengkap', ldl: 15, key: 'mie_instan_bumbu_lengkap' }, //
+  { name: 'Martabak telur daging', ldl: 30, key: 'martabak_telur_daging' }, //
+  { name: 'Satay', ldl: 25, key: 'satay' }, //
+  { name: 'Chocolate Bar', ldl: 20, key: 'coklat_bar' }, //
+  { name: 'Pasta Carbonara', ldl: 25, key: 'pasta' }, //
 ];
 
 const HEAL_CARDS = [
-  { name: 'Alpukat', hdl: 15, key: 'alpukat' },
-  { name: 'Oatmeal', hdl: 25, key: 'oatmeal' },
-  { name: 'Ikan salmon / tuna', hdl: 20, key: 'ikan_salmon_tuna' },
-  { name: 'Kacang almond', hdl: 15, key: 'kacang_almond' },
-  { name: 'Sayuran hijau (bayam, brokoli)', hdl: 30, key: 'sayuran_hijau' },
-  { name: 'Buah apel pir', hdl: 25, key: 'buah_apel_pir' },
-  { name: 'Minyak zaitun', hdl: 10, key: 'minyak_zaitun' },
-  { name: 'Yoghurt rendah lemak', hdl: 15, key: 'yoghurt_rendah_lemak' },
-  { name: 'Tempe tahu kukus', hdl: 20, key: 'tempe_tahu_kukus' },
-  { name: 'Jeruk dan buah beri', hdl: 25, key: 'jeruk_buah_beri' },
-  { name: 'Teh hijau tanpa gula', hdl: 10, key: 'teh_hijau_tanpa_gula' },
-  { name: 'Bawang putih', hdl: 15, key: 'bawang_putih' },
-  { name: 'Kacang merah lentil', hdl: 20, key: 'kacang_merah_lentil' },
-  { name: 'Air putih hangat rutin', hdl: 10, key: 'air_putih_hangat_rutin' },
+  { name: 'Alpukat', hdl: 15, key: 'alpukat' }, //
+  { name: 'Oatmeal', hdl: 25, key: 'oatmeal' },//
+  { name: 'Ikan salmon', hdl: 20, key: 'salmon' },//
+  { name: 'Kacang almond', hdl: 15, key: 'kacang_almond' },//
+  { name: 'edamame', hdl: 20, key: 'edamame' }, //
+  { name: 'Buah apel pir', hdl: 25, key: 'buah_apel_pir' }, //
+  { name: 'Minyak zaitun', hdl: 10, key: 'minyak_zaitun' }, //
+  { name: 'Yoghurt rendah lemak', hdl: 15, key: 'yoghurt_rendah_lemak' },//
+  { name: 'Tahu', hdl: 20, key: 'tahu' },//
+  { name: 'Jeruk dan buah beri', hdl: 25, key: 'jeruk_buah_beri' }, //
+  { name: 'Teh hijau tanpa gula', hdl: 10, key: 'greentea' }, //
+  { name: 'Bawang putih', hdl: 15, key: 'bawang_putih' },//
+  { name: 'Kacang merah lentil', hdl: 20, key: 'kacang_merah' },//
+  { name: 'Air putih hangat', hdl: 10, key: 'air_putih_hangat_rutin' }, //
+  { name: 'kubis', hdl: 30, key: 'kubis' }, //
 ];
 
 const BONUS_CARDS = [
-  { name: 'Lack of sleep', type: 'bonus_plus', points: 25, key: 'bonus_plus' },
-  { name: 'Smoking habit', type: 'bonus_plus', points: 35, key: 'bonus_plus' },
-  { name: 'Brisk walking', type: 'bonus_minus', points: 25, key: 'bonus_minus' },
-  { name: 'Yoga', type: 'bonus_minus', points: 15, key: 'bonus_minus' },
+  { name: 'Lack of sleep', type: 'bonus_plus', points: 25, key: 'lack' },
+  { name: 'Smoking habit', type: 'bonus_plus', points: 35, key: 'smoking' },
+  { name: 'Brisk walking', type: 'bonus_minus', points: 25, key: 'brisk' },
+  { name: 'Yoga', type: 'bonus_minus', points: 15, key: 'yoga' },
 ];
 
 function buildDeck(){
@@ -199,8 +201,8 @@ function cardEl(card){
   el.innerHTML = `
     <div class="img" style="background-image:url('${card.img}')"></div>
     <div class="type">${card.kind==='bonus'?card.bonus.replace('bonus_','').toUpperCase():card.kind.toUpperCase()}</div>
-    // <div class="title">${card.name}</div>
-    // <div class="points">${card.kind==='junk'?`+${card.ldl}`:card.kind==='heal'?`-${card.hdl}`:card.kind==='bonus'?(card.bonus==='bonus_plus'?`+${card.points}`:`-${card.points}`):''}</div>
+    <div class="title">${card.name}</div>
+    <div class="points">${card.kind==='junk'?`+${card.ldl}`:card.kind==='heal'?`-${card.hdl}`:card.kind==='bonus'?(card.bonus==='bonus_plus'?`+${card.points}`:`-${card.points}`):''}</div>
   `;
   el.addEventListener('click', ()=> onPlayCard(card.id));
   return el;

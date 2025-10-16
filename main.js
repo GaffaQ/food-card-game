@@ -109,7 +109,6 @@ function startGame(){
   });
 }
 
-// Forms
 formCount.addEventListener('submit', (e)=>{
   e.preventDefault();
   const n = parseInt(inputCount.value,10);
@@ -178,7 +177,7 @@ function renderScoreboard(){
     div.innerHTML = `
       <div class="row">
         <div class="name">${p.name}</div>
-        <div style="font-weight:900">${isTurn?'▶️':''}</div>
+        <div style="font-weight:900">${isTurn?'৹':''}</div>
       </div>
       <div class="stats">
         <div class="chip ldl">LDL +${p.ldlPoints}</div>
@@ -186,7 +185,7 @@ function renderScoreboard(){
         <div class="chip total">Total ${p.cholesterol}</div>
       </div>
       <div class="footer">
-        <div>🃏 ${p.hand.length} kartu</div>
+        <div>▶ ${p.hand.length} kartu</div>
         <div>${p.finished?'Selesai ✅':''}</div>
       </div>
     `;
